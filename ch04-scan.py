@@ -81,13 +81,16 @@ def main(word):
     '''
     for root, dirs, files in os.walk('.'):
         for file in files:
-            # Obtain the extension
+            if '.venv' in root:
+                continue
+           # Obtain the extension
             extension = file.split('.')[-1]
             if extension in EXTENSIONS:
                 search_file = EXTENSIONS.get(extension)
                 full_file_path = os.path.join(root, file)
+                #print(f'--- searching {full_file_path}')
                 if search_file(full_file_path, word):
-                    print(f'>>> Word found in {full_file_path}')
+                    print(f'>>> "{word}" found in {full_file_path}')
 
 
 if __name__ == '__main__':
