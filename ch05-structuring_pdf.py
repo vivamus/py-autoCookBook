@@ -95,7 +95,7 @@ def main():
 
     document.toc(links)
 
-    document.output('report.pdf')
+    document.output('junk-report-toc.pdf')
 
 
 if __name__ == '__main__':
